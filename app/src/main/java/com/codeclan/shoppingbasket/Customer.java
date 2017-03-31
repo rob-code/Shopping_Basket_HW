@@ -31,8 +31,10 @@ public class Customer {
     }
 
     public String getDiscountName(){
+        if (loyaltyDiscount == null){
+            return "no discount";
+        }
         return loyaltyDiscount.getOfferName();
-
     }
 
     public int getDiscountPercentage(){

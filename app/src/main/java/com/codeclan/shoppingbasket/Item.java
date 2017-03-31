@@ -1,8 +1,5 @@
 package com.codeclan.shoppingbasket;
 
-/**
- * Created by user on 31/03/2017.
- */
 
 public class Item {
 
@@ -37,11 +34,17 @@ public class Item {
         this.price = price;
     }
 
+    public boolean hasOffer(){
+        if (offer != null){
+            return true;
+        }
+        return false;
+    }
+
     public String getOfferName(){
         if (offer == null){
             return "no offer";
         }
-
         return offer.getOfferName();
     }
 

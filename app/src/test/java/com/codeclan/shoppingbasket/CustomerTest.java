@@ -45,6 +45,11 @@ public class CustomerTest {
     }
 
     @Test
+    public void canFindIfCustomerHasLoyaltyCard(){
+        assertEquals(true, customer1.isLoyal());
+    }
+
+    @Test
     public void canFindIfCustomerHasNoLoyaltyCard(){
         assertEquals(false, customer2.isLoyal());
     }

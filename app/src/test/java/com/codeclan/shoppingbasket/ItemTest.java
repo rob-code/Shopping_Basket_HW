@@ -50,9 +50,15 @@ public class ItemTest {
         assertEquals("no offer", item2.getOfferName());
     }
 
+    @Test
+    public void canDoBooleanTestForOfferWhenThereIsNoOffer(){
+        assertEquals(false,item2.hasOffer());
+    }
 
-
-
+    @Test
+    public void canDoBooleanTestForOfferWhenThereIsAnOffer(){
+        assertEquals(true,item1.hasOffer());
+    }
 
 
 
