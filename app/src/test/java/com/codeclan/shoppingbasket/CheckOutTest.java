@@ -3,7 +3,6 @@ package com.codeclan.shoppingbasket;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class CheckOutTest {
 
@@ -21,6 +20,7 @@ public class CheckOutTest {
     Customer customer1;
     Customer customer2;
 
+    UniversalDiscounts universalDiscount;
     CheckOut checkOut;
 
     @Before
@@ -33,10 +33,6 @@ public class CheckOutTest {
         item5 = new Item("Caviar", 2600);
         item6 = new Item("Crackers", 110, itemOffer);
 
-        loyaltyDiscount = new TwoPcOffTotal();
-        customer1 = new Customer("Jane", loyaltyDiscount);
-        customer2 = new Customer("Robert");
-
         basket = new Basket();
 
         basket.addItem(item1);
@@ -48,11 +44,17 @@ public class CheckOutTest {
         basket.addItem(item1);
         basket.addItem(item6);
 
+        loyaltyDiscount = new TwoPcOffTotal();
+        customer1 = new Customer("Jane", loyaltyDiscount);
+        customer2 = new Customer("Robert");
+
+        universalDiscount = new TenPcOffOver20();
+        checkOut = new CheckOut(basket, customer1, universalDiscount);
     }
 
     @Test
     public void canViewAllItemsInBasket(){
-        basket.listContents();
+        checkOut.listBasketContents();
     }
 
 }
