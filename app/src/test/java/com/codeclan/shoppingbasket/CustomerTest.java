@@ -6,47 +6,52 @@ import static org.junit.Assert.*;
 
 public class CustomerTest {
 
-    Customer customer;
+    Customer customer1;
+    Customer customer2;
     TwoPcOffTotal loyaltyDiscount;
 
     @Before
     public void before(){
         loyaltyDiscount = new TwoPcOffTotal();
-        customer = new Customer("Bill", true, loyaltyDiscount);
+        customer1 = new Customer("Bill", loyaltyDiscount);
+        customer2 = new Customer("Jane");
+
     }
 
     @Test
     public void canGetCustomerName(){
-        assertEquals("Bill", customer.getName());
+        assertEquals("Bill", customer1.getName());
     }
 
     @Test
     public void canSetCustomerName(){
-        customer.setName("Norelle");
-        assertEquals("Norelle", customer.getName());
+        customer1.setName("Norelle");
+        assertEquals("Norelle", customer1.getName());
     }
 
     @Test
     public void canCheckIfCustomerIsLoyal(){
-        assertEquals(true, customer.isLoyal());
-    }
-
-    @Test
-    public void canSetCustomerLoyalty(){
-        customer.setLoyalty(false);
-        assertEquals(false, customer.isLoyal());
+        assertEquals(true, customer1.isLoyal());
     }
 
     @Test
     public void canGetDiscountName(){
-        assertEquals("bogof", customer.getDiscountName());
+        assertEquals("2% Off Your Total Spend", customer1.getDiscountName());
     }
 
     @Test
     public void canGetDiscountPercentage(){
-        assertEquals(2, customer.getDiscountPercentage());
+        assertEquals(2, customer1.getDiscountPercentage());
     }
 
+    @Test
+    public void canFindIfCustomerHasNoLoyaltyCard(){
+        assertEquals(false, customer2.isLoyal());
+    }
 
+    @Test
+    public void canGetCustomerNameWhenTheyHaveNoLoyaltyCard(){
+        assertEquals("Jane", customer2.getName());
+    }
 
 }

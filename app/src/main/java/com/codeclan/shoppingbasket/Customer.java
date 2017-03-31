@@ -3,14 +3,16 @@ package com.codeclan.shoppingbasket;
 public class Customer {
 
     private String name;
-    private Boolean loyalty;
     private LoyaltyDiscounts loyaltyDiscount;
 
 
-    public Customer(String name, Boolean loyalty, LoyaltyDiscounts loyaltyDiscount){
+    public Customer(String name, LoyaltyDiscounts loyaltyDiscount){
         this.name = name;
-        this.loyalty = loyalty;
         this.loyaltyDiscount = loyaltyDiscount;
+    }
+
+    public Customer(String name){
+        this.name = name;
     }
 
     public String getName() {
@@ -22,11 +24,10 @@ public class Customer {
     }
 
     public Boolean isLoyal() {
-        return loyalty;
-    }
-
-    public void setLoyalty(Boolean loyal) {
-        loyalty = loyal;
+        if (loyaltyDiscount != null){
+            return true;
+        }
+            return false;
     }
 
     public String getDiscountName(){
