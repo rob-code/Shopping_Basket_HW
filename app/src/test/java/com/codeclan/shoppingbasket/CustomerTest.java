@@ -7,10 +7,12 @@ import static org.junit.Assert.*;
 public class CustomerTest {
 
     Customer customer;
+    TwoPcOffTotal loyaltyDiscount;
 
 
     @Before
     public void before(){
+        loyaltyDiscount = new TwoPcOffTotal();
         customer = new Customer("Bill", true);
     }
 
