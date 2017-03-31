@@ -2,13 +2,11 @@ package com.codeclan.shoppingbasket;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 31/03/2017.
- */
+
 
 public class Basket {
 
-    ArrayList<Item> contents;
+    private ArrayList<Item> contents;
 
     public Basket(){
         this.contents = new ArrayList<Item>();
