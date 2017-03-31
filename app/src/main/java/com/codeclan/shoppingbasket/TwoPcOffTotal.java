@@ -3,13 +3,8 @@ package com.codeclan.shoppingbasket;
 
 public class TwoPcOffTotal{
 
-    private String offerName;
-    private int discountPercentage;
-
-    public void TwoPcOffTotal(String offerName, int discountPercentage){
-        this.offerName = offerName;
-        this.discountPercentage = discountPercentage;
-    }
+    private String offerName = "bogof";
+    private int discountPercentage = 2;
 
     public String getOfferName() {
         return offerName;
