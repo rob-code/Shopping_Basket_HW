@@ -8,6 +8,7 @@ public class CustomerTest {
 
     Customer customer;
 
+
     @Before
     public void before(){
         customer = new Customer("Bill", true);
