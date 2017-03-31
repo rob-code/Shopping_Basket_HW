@@ -9,11 +9,10 @@ public class CustomerTest {
     Customer customer;
     TwoPcOffTotal loyaltyDiscount;
 
-
     @Before
     public void before(){
         loyaltyDiscount = new TwoPcOffTotal();
-        customer = new Customer("Bill", true);
+        customer = new Customer("Bill", true, loyaltyDiscount);
     }
 
     @Test
@@ -32,12 +31,22 @@ public class CustomerTest {
         assertEquals(true, customer.isLoyal());
     }
 
-
     @Test
     public void canSetCustomerLoyalty(){
         customer.setLoyalty(false);
         assertEquals(false, customer.isLoyal());
     }
+
+    @Test
+    public void canGetDiscountName(){
+        assertEquals("bogof", customer.getDiscountName());
+    }
+
+    @Test
+    public void canGetDiscountPercentage(){
+        assertEquals(2, customer.getDiscountPercentage());
+    }
+
 
 
 }
