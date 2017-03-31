@@ -7,34 +7,51 @@ import static org.junit.Assert.*;
 public class CustomerTest {
 
     Customer customer;
+    LoyaltyDiscounts discount;
+
 
     @Before
     public void before(){
-        customer = new Customer("Bill", true);
+        discount = new LoyaltyDiscounts() {
+            @Override
+            public String getDiscountName() {
+                return "bogof";
+            }
+
+            @Override
+            public int getDiscountPercentage() {
+                return 2;
+            }
+        };
+        customer = new Customer("Bill", true, discount);
     }
 
     @Test
-    private void canGetCustomerName(){
+    public void canGetCustomerName(){
         assertEquals("Bill", customer.getName());
     }
 
     @Test
-    private void canSetCustomerName(){
+    public void canSetCustomerName(){
         customer.setName("Norelle");
         assertEquals("Norelle", customer.getName());
     }
 
     @Test
-    private void canCheckIfCustomerIsLoyal(){
+    public void canCheckIfCustomerIsLoyal(){
         assertEquals(true, customer.isLoyal());
     }
 
 
     @Test
-    private void canSetCustomerLoyalty(){
+    public void canSetCustomerLoyalty(){
         customer.setLoyalty(false);
         assertEquals(false, customer.isLoyal());
     }
 
+    @Test
+    public void canGetCustomerLoyaltyOfferName(){
+        assertEquals("bogof", customer.getLoyaltyDiscountName());
+    }
 
 }
