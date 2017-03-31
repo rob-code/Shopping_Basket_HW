@@ -45,6 +45,8 @@ public class CheckOutTest {
         basket.addItem(item4);
         basket.addItem(item5);
         basket.addItem(item6);
+        basket.addItem(item1);
+        basket.addItem(item6);
 
     }
 
