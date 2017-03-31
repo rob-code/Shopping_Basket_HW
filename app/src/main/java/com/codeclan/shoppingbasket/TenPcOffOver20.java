@@ -4,7 +4,7 @@ package com.codeclan.shoppingbasket;
  * Created by user on 31/03/2017.
  */
 
-public class TenPcOffOver20 {
+public class TenPcOffOver20 implements AllCustomerDiscounts{
 
     String offerName = "10% off when the price is over £20";
     int discountPercentage = 10;
