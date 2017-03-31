@@ -34,6 +34,9 @@ public class Basket {
 
     public void removeItemByName(String name){
 
+        //interesting! cannot use the iterator if I wish to remove an item
+        //get a concurrent use error
+
         for (int i = 0; i < basketContents.size(); i++){
 
             Item item = basketContents.get(i);
@@ -44,6 +47,10 @@ public class Basket {
             }
 
         }
+    }
+
+    public void removeAllItems(){
+        basketContents.clear();
     }
 
 
