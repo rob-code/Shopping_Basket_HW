@@ -2,6 +2,9 @@ package com.codeclan.shoppingbasket;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class BasketTest{
@@ -9,6 +12,7 @@ public class BasketTest{
     Item item1;
     Item item2;
     Basket basket;
+    ArrayList<Item> contents;
 
     @Before
     public void before(){
@@ -38,10 +42,18 @@ public class BasketTest{
 
     @Test
     public void canRemoveAllItemsFromBasket(){
-        basket.removeAllItems();
+        basket.removeContents();
         assertEquals(0, basket.numberOfItems());
     }
 
+    @Test
+    public void canGetBasketContents(){
+        contents = new ArrayList<Item>();
+        contents = basket.getContents();
+        assertEquals(2, contents.size());
+
+
+    }
 
 
 }

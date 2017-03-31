@@ -49,10 +49,9 @@ public class Basket {
         }
     }
 
-    public void removeAllItems(){
+    public void removeContents(){
         contents.clear();
     }
-
 
     public void listContents(){
         for (Item item : contents){
@@ -60,6 +59,9 @@ public class Basket {
         }
     }
 
+    public ArrayList<Item> getContents() {
+        return contents;
+    }
 
 
 
