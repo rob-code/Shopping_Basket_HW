@@ -32,15 +32,28 @@ public class Basket {
         basketContents.remove(p);
     }
 
+    public void removeItemByName(String name){
+
+        for (int i = 0; i < basketContents.size(); i++){
+
+            Item item = basketContents.get(i);
+
+            if (item.getName().equals(name)){
+                int j = basketContents.indexOf(item);
+                basketContents.remove(j);
+            }
+
+        }
+    }
+
+
     public void listContents(){
         for (Item item : basketContents){
             System.out.println(item.getName() + " " + item.getPrice());
         }
     }
 
-//    public void removeItemByName(String name){
-//
-//    }
+
 
 
 
