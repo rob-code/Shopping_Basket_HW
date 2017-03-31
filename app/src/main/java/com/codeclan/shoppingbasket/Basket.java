@@ -8,28 +8,28 @@ import java.util.ArrayList;
 
 public class Basket {
 
-    ArrayList<Item> basketContents;
+    ArrayList<Item> contents;
 
     public Basket(){
-        this.basketContents = new ArrayList<Item>();
+        this.contents = new ArrayList<Item>();
     }
 
     public void addItem(Item item){
         Item itemToAdd = item;
-        basketContents.add(itemToAdd);
+        contents.add(itemToAdd);
     }
 
     public int numberOfItems(){
-        return basketContents.size();
+        return contents.size();
     }
 
     public Item getLastItem(){
-        return basketContents.get(basketContents.size()-1);
+        return contents.get(contents.size()-1);
     }
 
     public void removeItemAsObject(Item item){
-        int p = basketContents.indexOf(item);
-        basketContents.remove(p);
+        int p = contents.indexOf(item);
+        contents.remove(p);
     }
 
     public void removeItemByName(String name){
@@ -37,25 +37,25 @@ public class Basket {
         //interesting! cannot use the iterator if I wish to remove an item
         //get a concurrent use error
 
-        for (int i = 0; i < basketContents.size(); i++){
+        for (int i = 0; i < contents.size(); i++){
 
-            Item item = basketContents.get(i);
+            Item item = contents.get(i);
 
             if (item.getName().equals(name)){
-                int j = basketContents.indexOf(item);
-                basketContents.remove(j);
+                int j = contents.indexOf(item);
+                contents.remove(j);
             }
 
         }
     }
 
     public void removeAllItems(){
-        basketContents.clear();
+        contents.clear();
     }
 
 
     public void listContents(){
-        for (Item item : basketContents){
+        for (Item item : contents){
             System.out.println(item.getName() + " " + item.getPrice());
         }
     }
