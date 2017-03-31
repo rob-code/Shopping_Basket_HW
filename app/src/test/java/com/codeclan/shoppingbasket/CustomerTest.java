@@ -7,23 +7,10 @@ import static org.junit.Assert.*;
 public class CustomerTest {
 
     Customer customer;
-    LoyaltyDiscounts discount;
-
 
     @Before
     public void before(){
-        discount = new LoyaltyDiscounts() {
-            @Override
-            public String getDiscountName() {
-                return "bogof";
-            }
-
-            @Override
-            public int getDiscountPercentage() {
-                return 2;
-            }
-        };
-        customer = new Customer("Bill", true, discount);
+        customer = new Customer("Bill", true);
     }
 
     @Test
@@ -49,9 +36,5 @@ public class CustomerTest {
         assertEquals(false, customer.isLoyal());
     }
 
-    @Test
-    public void canGetCustomerLoyaltyOfferName(){
-        assertEquals("bogof", customer.getLoyaltyDiscountName());
-    }
 
 }

@@ -4,12 +4,11 @@ public class Customer {
 
     private String name;
     private Boolean loyalty;
-    private LoyaltyDiscounts loyaltyDiscount;
 
-    public Customer(String name, Boolean loyalty, LoyaltyDiscounts loyaltyDiscount){
+
+    public Customer(String name, Boolean loyalty){
         this.name = name;
         this.loyalty = loyalty;
-        this.loyaltyDiscount = loyaltyDiscount;
     }
 
     public String getName() {
@@ -28,9 +27,6 @@ public class Customer {
         loyalty = loyal;
     }
 
-    public String getLoyaltyDiscountName(){
-        return loyaltyDiscount.getDiscountName();
-    }
 
 
 }
