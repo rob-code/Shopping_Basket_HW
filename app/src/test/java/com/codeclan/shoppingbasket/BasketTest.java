@@ -13,11 +13,13 @@ public class BasketTest{
     Item item2;
     Basket basket;
     ArrayList<Item> contents;
+    ItemOffers offer;
 
     @Before
     public void before(){
-        item1 = new Item("Bread", 1500);
-        item2 = new Item("Milk", 90);
+        offer = new BuyOneGetOneFree();
+        item1 = new Item("Bread", 1500, offer);
+        item2 = new Item("Milk", 90, offer);
         basket = new Basket();
         basket.addItem(item1);
         basket.addItem(item2);

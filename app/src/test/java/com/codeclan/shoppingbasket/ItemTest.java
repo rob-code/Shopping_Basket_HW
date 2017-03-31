@@ -8,10 +8,14 @@ import static org.junit.Assert.*;
 public class ItemTest {
 
     Item item1;
+    Item item2;
+    ItemOffers offer;
 
     @Before
     public void before(){
-        item1 = new Item("Cheese", 150);
+        offer = new BuyOneGetOneFree();
+        item1 = new Item("Cheese", 150, offer);
+        item2 = new Item("Bread", 200);
     }
 
     @Test
@@ -36,7 +40,15 @@ public class ItemTest {
         assertEquals(2000, item1.getPrice());
     }
 
+    @Test
+    public void canGetOfferName(){
+        assertEquals("Buy One Get One Free", item1.getOfferName());
+    }
 
+    @Test
+    public void canGetCaseWhenThereIsNoOffer(){
+        assertEquals("no offer", item2.getOfferName());
+    }
 
 
 

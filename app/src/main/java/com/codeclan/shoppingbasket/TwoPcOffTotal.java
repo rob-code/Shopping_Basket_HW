@@ -3,7 +3,7 @@ package com.codeclan.shoppingbasket;
 
 public class TwoPcOffTotal implements LoyaltyDiscounts{
 
-    private String offerName = "bogof";
+    private String offerName = "2% Off Your Total Spend";
     private int discountPercentage = 2;
 
     public String getOfferName() {
@@ -17,8 +17,6 @@ public class TwoPcOffTotal implements LoyaltyDiscounts{
     public void setOfferName(String offerName) {
         this.offerName = offerName;
     }
-
-
 
     public void setDiscountPercentage(int discountPercentage) {
         this.discountPercentage = discountPercentage;
