@@ -25,10 +25,22 @@ public class Basket {
 
     public Item getLastItem(){
         return basketContents.get(basketContents.size()-1);
-
-
     }
 
+    public void removeItemAsObject(Item item){
+        int p = basketContents.indexOf(item);
+        basketContents.remove(p);
+    }
+
+    public void listContents(){
+        for (Item item : basketContents){
+            System.out.println(item.getName() + " " + item.getPrice());
+        }
+    }
+
+//    public void removeItemByName(String name){
+//
+//    }
 
 
 
