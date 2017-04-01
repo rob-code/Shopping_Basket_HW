@@ -1,6 +1,7 @@
 package com.codeclan.shoppingbasket;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class CheckOut {
 
@@ -8,6 +9,7 @@ public class CheckOut {
     private Customer customer;
     private UniversalDiscounts universalDiscount;
     private BigDecimal total;
+    private ArrayList<Item> basketContents;
 
 
     public CheckOut(Basket basket, Customer customer, UniversalDiscounts universalDiscount){
@@ -54,25 +56,42 @@ public class CheckOut {
         return false;
     }
 
-    public void calculateTotal() {
+    public int rawTotal() {
+        this.basketContents = basket.getContents();
+        int totalCost = 0;
+        for (Item item : basketContents){
+            totalCost += item.getPrice();
+        }
+        return totalCost;
+    }
+
+    public int applyDiscounts(){
+
+        int totalWithDiscounts = this.rawTotal();
+
+        //apply universal discount
+        if (hasUniversalDiscount() && this.rawTotal() > universalDiscount.getDiscountThreshold()){
+            totalWithDiscounts -= totalWithDiscounts * universalDiscount.getDiscountPercentage()/100;
+        }
+
+        //apply loyalty discount
+        if (customerIsLoyal()){
+            totalWithDiscounts -= totalWithDiscounts * customer.getDiscountPercentage()/100;
+        }
+        return totalWithDiscounts;
+    }
+
 
 //        //calculateBasketTotal
 //        for
 //
-//        //apply universal discount
-//        if (hasUniversalDiscount()){
-//
-//        }
+
 //
 //        //apply loyalty discount
 //        if (customerIsLoyal()){
 
 //        }
 //
-
-
-
-
-    }
+//    }
 
 }

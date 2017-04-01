@@ -6,24 +6,37 @@ package com.codeclan.shoppingbasket;
 
 public class TenPcOffOver20 implements UniversalDiscounts {
 
-    String offerName = "10% off when the price is over £20";
-    int discountPercentage = 10;
+    private static final String offerName = "10% off when the price is over £20";
+    private static final int discountPercentage = 10;
+    private static final int discountThreshold = 2000;
 
 
     public String getOfferName() {
         return offerName;
     }
 
-    public void setOfferName(String offerName) {
-        this.offerName = offerName;
-    }
-
     public int getDiscountPercentage() {
         return discountPercentage;
     }
 
-    public void setDiscountPercentage(int discountPercentage) {
-        this.discountPercentage = discountPercentage;
+    public int getDiscountThreshold(){
+        return discountThreshold;
     }
+
+
+    //setters are not required beccause we will never change the offer
+    //we will only ever create a new offer.
+
+//    public void setOfferName(String offerName) {
+//        this.offerName = offerName;
+//    }
+
+
+//    public void setDiscountPercentage(int discountPercentage) {
+//        this.discountPercentage = discountPercentage;
+//    }
+
+
+
 
 }

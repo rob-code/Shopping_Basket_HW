@@ -7,4 +7,5 @@ package com.codeclan.shoppingbasket;
 public interface UniversalDiscounts {
     public String getOfferName();
     public int getDiscountPercentage();
+    public int getDiscountThreshold();
 }

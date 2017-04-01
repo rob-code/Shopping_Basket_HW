@@ -14,7 +14,9 @@ public class CheckOutTest {
     Item item5;
     Item item6;
 
-    Basket basket;
+    Basket basket1;
+    Basket basket2;
+    Basket basket3;
 
     LoyaltyDiscounts loyaltyDiscount;
     Customer customer1;
@@ -25,6 +27,9 @@ public class CheckOutTest {
     CheckOut checkOut2;
     CheckOut checkOut3;
     CheckOut checkOut4;
+    CheckOut checkOut5;
+    CheckOut checkOut6;
+
 
     @Before
     public void before(){
@@ -36,26 +41,34 @@ public class CheckOutTest {
         item5 = new Item("Caviar", 2600);
         item6 = new Item("Crackers", 110, itemOffer);
 
-        basket = new Basket();
+        basket1 = new Basket();
 
-        basket.addItem(item1);
-        basket.addItem(item2);
-        basket.addItem(item3);
-        basket.addItem(item4);
-        basket.addItem(item5);
-        basket.addItem(item6);
-        basket.addItem(item1);
-        basket.addItem(item6);
+        basket1.addItem(item1);
+        basket1.addItem(item2);
+        basket1.addItem(item3);
+        basket1.addItem(item4);
+        basket1.addItem(item5);
+        basket1.addItem(item6);
+        basket1.addItem(item1);
+        basket1.addItem(item6);
+
+        basket2 = new Basket();
+        basket2.addItem(item5);
+
+        basket3 = new Basket();
+        basket3.addItem(item1);
 
         loyaltyDiscount = new TwoPcOffTotal();
         customer1 = new Customer("Jane", loyaltyDiscount);
         customer2 = new Customer("Robert");
 
         universalDiscount = new TenPcOffOver20();
-        checkOut1 = new CheckOut(basket, customer1, universalDiscount);
-        checkOut2 = new CheckOut(basket, universalDiscount);
-        checkOut3 = new CheckOut(basket);
-        checkOut4 = new CheckOut(basket, customer2, universalDiscount);
+        checkOut1 = new CheckOut(basket1, customer1, universalDiscount);
+        checkOut2 = new CheckOut(basket1, universalDiscount);
+        checkOut3 = new CheckOut(basket1);
+        checkOut4 = new CheckOut(basket2, customer2, universalDiscount);
+        checkOut5 = new CheckOut(basket3, customer2, universalDiscount);
+        checkOut6 = new CheckOut(basket3, customer1, universalDiscount);
     }
 
     @Test
@@ -106,6 +119,29 @@ public class CheckOutTest {
     @Test
     public void canCheckIfCustomerIsNotLoyal(){
         assertEquals(false, checkOut4.customerIsLoyal());
+    }
+
+    @Test
+    public void canCalculateRawToTal(){
+        assertEquals(6585, checkOut1.rawTotal());
+    }
+
+    @Test
+    public void universalDiscountOverThresholdIsNotApplied(){
+        assertEquals(180, checkOut5.rawTotal());
+        assertEquals(180, checkOut5.applyDiscounts());
+    }
+
+    @Test
+    public void universalDiscountOverThresholdIsApplied(){
+        assertEquals(2600, checkOut4.rawTotal());
+        assertEquals(2340, checkOut4.applyDiscounts());
+    }
+
+    @Test
+    public void canApplyCustomerLoyaltyDiscountIfLoyal(){
+        assertEquals(180, checkOut6.rawTotal());
+        assertEquals(177, checkOut6.applyDiscounts());
     }
 
 

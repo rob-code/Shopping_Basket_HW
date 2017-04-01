@@ -23,4 +23,10 @@ public class TenPcOffOver20Test {
     public void canGetDiscountPercentage(){
         assertEquals(10, offer.getDiscountPercentage());
     }
+
+    @Test
+    public void canGetDiscountThreshold(){
+        assertEquals(2000, offer.getDiscountThreshold());
+    }
+
 }
