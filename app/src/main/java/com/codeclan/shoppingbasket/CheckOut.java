@@ -69,6 +69,9 @@ public class CheckOut {
 
         int totalWithDiscounts = this.rawTotal();
 
+        //apply bogof
+
+
         //apply universal discount
         if (hasUniversalDiscount() && this.rawTotal() > universalDiscount.getDiscountThreshold()){
             totalWithDiscounts -= totalWithDiscounts * universalDiscount.getDiscountPercentage()/100;
@@ -81,17 +84,5 @@ public class CheckOut {
         return totalWithDiscounts;
     }
 
-
-//        //calculateBasketTotal
-//        for
-//
-
-//
-//        //apply loyalty discount
-//        if (customerIsLoyal()){
-
-//        }
-//
-//    }
 
 }
