@@ -87,25 +87,22 @@ public class CheckOut {
                 if (item.hasOffer() == true){
 
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
+
+                    //?? get the n values it goe sin and check for the odd
+                    // value
+
                     total = total;
 
                 } else {
-
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
-                    total = total;
                     total += item.getPrice() * entry.getValue();
                 }
 
             } else {
-
                 System.out.println(item.getName() + " has a count of " + entry.getValue() + " so any offer does not apply");
                 total += item.getPrice();
             }
-
-
             System.out.println(entry.getKey() + " = " + entry.getValue() + " Total = " + total);
-
-
 
         }
 
