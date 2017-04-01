@@ -2,6 +2,8 @@ package com.codeclan.shoppingbasket;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CheckOut {
 
@@ -64,6 +66,24 @@ public class CheckOut {
         }
         return totalCost;
     }
+
+    public void analyseArrayList(){
+        Map<Item, Integer> counts = new HashMap<Item, Integer>();
+        for (Item item : basketContents){
+            if (counts.containsKey(item)) {
+                counts.put(item, counts.get(item) + 1);
+            } else {
+                counts.put(item, 1);
+            }
+        }
+
+        for (Map.Entry<Item, Integer> entry : counts.entrySet()){
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
+
+    }
+
+
 
     public int applyDiscounts(){
 

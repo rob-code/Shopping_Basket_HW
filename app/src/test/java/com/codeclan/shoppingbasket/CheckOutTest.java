@@ -73,7 +73,7 @@ public class CheckOutTest {
 
     @Test
     public void canViewAllItemsInBasket(){
-        checkOut1.listBasketContents();
+        //checkOut1.listBasketContents();
     }
 
     @Test
@@ -145,9 +145,9 @@ public class CheckOutTest {
     }
 
 
-//    @Test
-//    public void canCalculateTotalAmount(){
-//
-//    }
+    @Test
+    public void analyseArrayList(){
+        checkOut3.analyseArrayList();
+    }
 
 }
