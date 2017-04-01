@@ -67,7 +67,7 @@ public class CheckOut {
 //        //apply loyalty discount
 //        if (customerIsLoyal()){
 
-        }
+//        }
 //
 
 
