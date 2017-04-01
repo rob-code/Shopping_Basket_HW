@@ -53,6 +53,12 @@ public class CheckOutTest {
         basket1.addItem(item6);
         basket1.addItem(item1);
         basket1.addItem(item6);
+        basket1.addItem(item6);
+        basket1.addItem(item6);
+        basket1.addItem(item6);
+        basket1.addItem(item6);
+        basket1.addItem(item6);
+
 
         basket2 = new Basket();
         basket2.addItem(item5);
@@ -80,11 +86,11 @@ public class CheckOutTest {
 
     @Test
     public void canGetNumberOfItemsInBasket(){
-        assertEquals(8, checkOut1.numberOfItemsInBasket());
+        assertEquals(13, checkOut1.numberOfItemsInBasket());
     }
 
     public void canGetRawTotalOfBasket1(){
-        assertEquals(6585, checkOut1.rawTotal());
+        assertEquals(7135, checkOut1.rawTotal());
     }
 
 
@@ -130,7 +136,7 @@ public class CheckOutTest {
 
     @Test
     public void canCalculateRawToTal(){
-        assertEquals(6585, checkOut1.rawTotal());
+        assertEquals(7135, checkOut1.rawTotal());
     }
 
     @Test

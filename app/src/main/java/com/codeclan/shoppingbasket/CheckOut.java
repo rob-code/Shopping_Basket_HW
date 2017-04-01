@@ -79,6 +79,7 @@ public class CheckOut {
         }
 
         int total = 0;
+        double k;
         for (Map.Entry<Item, Integer> entry : counts.entrySet()){
             Item item = entry.getKey();
 
@@ -88,8 +89,9 @@ public class CheckOut {
 
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
 
-                    //?? get the n values it goe sin and check for the odd
-                    // value
+                    k = (double)entry.getValue()/2;
+                    //get positive and decimal parts of the number
+                    System.out.println("k = " + k + " and k % 2 = " + (k % 2));
 
                     total = total;
 
