@@ -68,6 +68,7 @@ public class CheckOut {
     }
 
     public void analyseArrayList(){
+        this.basketContents = basket.getContents();
         Map<Item, Integer> counts = new HashMap<Item, Integer>();
         for (Item item : basketContents){
             if (counts.containsKey(item)) {
@@ -77,8 +78,35 @@ public class CheckOut {
             }
         }
 
+        int total = 0;
         for (Map.Entry<Item, Integer> entry : counts.entrySet()){
-            System.out.println(entry.getKey() + " = " + entry.getValue());
+            Item item = entry.getKey();
+
+            if (entry.getValue()>1){
+
+                if (item.hasOffer() == true){
+
+                    System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
+                    total = total;
+
+                } else {
+
+                    System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
+                    total = total;
+                    total += item.getPrice() * entry.getValue();
+                }
+
+            } else {
+
+                System.out.println(item.getName() + " has a count of " + entry.getValue() + " so any offer does not apply");
+                total += item.getPrice();
+            }
+
+
+            System.out.println(entry.getKey() + " = " + entry.getValue() + " Total = " + total);
+
+
+
         }
 
     }

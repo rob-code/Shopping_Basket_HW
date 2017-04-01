@@ -34,6 +34,8 @@ public class CheckOutTest {
     @Before
     public void before(){
 
+        itemOffer = new BuyOneGetOneFree();
+
         item1 = new Item("Cheese", 180, itemOffer);
         item2 = new Item("Bread", 120);
         item3 = new Item("Milk", 85);
@@ -80,6 +82,11 @@ public class CheckOutTest {
     public void canGetNumberOfItemsInBasket(){
         assertEquals(8, checkOut1.numberOfItemsInBasket());
     }
+
+    public void canGetRawTotalOfBasket1(){
+        assertEquals(6585, checkOut1.rawTotal());
+    }
+
 
     @Test
     public void canCheckIfUniversalDiscountExists1(){
