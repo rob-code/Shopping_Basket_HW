@@ -58,6 +58,7 @@ public class CheckOutTest {
         basket1.addItem(item6);
         basket1.addItem(item6);
         basket1.addItem(item6);
+        basket1.addItem(item3);
 
 
         basket2 = new Basket();
@@ -86,7 +87,7 @@ public class CheckOutTest {
 
     @Test
     public void canGetNumberOfItemsInBasket(){
-        assertEquals(13, checkOut1.numberOfItemsInBasket());
+        assertEquals(14, checkOut1.numberOfItemsInBasket());
     }
 
     public void canGetRawTotalOfBasket1(){
@@ -136,31 +137,31 @@ public class CheckOutTest {
 
     @Test
     public void canCalculateRawToTal(){
-        assertEquals(7135, checkOut1.rawTotal());
+        assertEquals(7220, checkOut1.rawTotal());
     }
 
     @Test
     public void universalDiscountOverThresholdIsNotApplied(){
         assertEquals(180, checkOut5.rawTotal());
-        assertEquals(180, checkOut5.applyDiscounts());
+        //assertEquals(180, checkOut5.applyDiscounts());
     }
 
     @Test
     public void universalDiscountOverThresholdIsApplied(){
         assertEquals(2600, checkOut4.rawTotal());
-        assertEquals(2340, checkOut4.applyDiscounts());
+        //assertEquals(2340, checkOut4.applyDiscounts());
     }
 
     @Test
     public void canApplyCustomerLoyaltyDiscountIfLoyal(){
         assertEquals(180, checkOut6.rawTotal());
-        assertEquals(177, checkOut6.applyDiscounts());
+        //assertEquals(177, checkOut6.applyDiscounts());
     }
 
 
     @Test
     public void analyseArrayList(){
-        checkOut3.calculateBasketTotal();
+        checkOut1.calculateBasketTotal();
     }
 
 }

@@ -13,7 +13,7 @@ public class CheckOut {
     private Basket basket;
     private Customer customer;
     private UniversalDiscounts universalDiscount;
-    private BigDecimal total;
+    int total;
     private ArrayList<Item> basketContents;
 
 
@@ -89,7 +89,7 @@ public class CheckOut {
         System.out.println(" ");
 
 
-        int total = 0;
+        total = 0;
         double k;
         for (Map.Entry<Item, Integer> entry : counts.entrySet()){
             Item item = entry.getKey();
@@ -119,7 +119,7 @@ public class CheckOut {
                     System.out.println("Total to pay after discount applied: " + amountToPay);
 
                 } else {
-                    System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
+                    System.out.println(entry.getValue() + " x " + item.getName() + " (@ " + item.getPrice() + "/item) Total: " + item.getPrice()*entry.getValue());
                     total += item.getPrice() * entry.getValue();
                 }
 
@@ -132,29 +132,26 @@ public class CheckOut {
             System.out.println(" ");
         }
 
+        applyDiscounts();
         System.out.println("***** Total To Pay : " + total);
 
     }
 
-
-
-    public int applyDiscounts(){
-
-        int totalWithDiscounts = this.rawTotal();
-
-        //apply bogof
-
+    public void applyDiscounts(){
 
         //apply universal discount
-        if (hasUniversalDiscount() && this.rawTotal() > universalDiscount.getDiscountThreshold()){
-            totalWithDiscounts -= totalWithDiscounts * universalDiscount.getDiscountPercentage()/100;
+        if (hasUniversalDiscount() && total > universalDiscount.getDiscountThreshold()){
+            total -= total * universalDiscount.getDiscountPercentage()/100;
+            System.out.println("Discount applied : " + universalDiscount.getOfferName());
+
+
         }
 
         //apply loyalty discount
         if (customerIsLoyal()){
-            totalWithDiscounts -= totalWithDiscounts * customer.getDiscountPercentage()/100;
+            total -= total * customer.getDiscountPercentage()/100;
+            System.out.println("Discount applied : " + customer.getDiscountName());
         }
-        return totalWithDiscounts;
     }
 
 
