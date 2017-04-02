@@ -30,7 +30,6 @@ public class CheckOutTest {
     CheckOut checkOut5;
     CheckOut checkOut6;
 
-
     @Before
     public void before(){
 
@@ -59,7 +58,6 @@ public class CheckOutTest {
         basket1.addItem(item6);
         basket1.addItem(item6);
         basket1.addItem(item3);
-
 
         basket2 = new Basket();
         basket2.addItem(item5);
@@ -94,25 +92,24 @@ public class CheckOutTest {
         assertEquals(7135, checkOut1.rawTotal());
     }
 
-
     @Test
-    public void canCheckIfUniversalDiscountExists1(){
+    public void canCheckIfUniversalDiscountExistsWithCustomerInfo(){
         assertEquals(true, checkOut1.hasUniversalDiscount());
     }
 
     @Test
-    public void canCheckIfUniversalDiscountExists2(){
+    public void canCheckIfCustomerIdentityExists(){
+        assertEquals(true, checkOut1.hasCustomerIdentity());
+    }
+
+    @Test
+    public void canCheckIfUniversalDiscountExistsWithNoCustomerInfo(){
         assertEquals(true, checkOut2.hasUniversalDiscount());
     }
 
     @Test
     public void canCheckIfUniversalDiscountDoesNotExist(){
         assertEquals(false, checkOut3.hasUniversalDiscount());
-    }
-
-    @Test
-    public void canCheckIfCustomerIdentityExists(){
-        assertEquals(true, checkOut1.hasCustomerIdentity());
     }
 
     @Test
@@ -142,25 +139,21 @@ public class CheckOutTest {
 
     @Test
     public void universalDiscountOverThresholdIsNotApplied(){
-        assertEquals(180, checkOut5.rawTotal());
-        //assertEquals(180, checkOut5.applyDiscounts());
+        checkOut4.calculateBasketTotal();
     }
 
     @Test
-    public void appliesUniversalDiscountOverThreshold(){
-        assertEquals(2600, checkOut4.rawTotal());
-        //assertEquals(2340, checkOut4.applyDiscounts());
+    public void canCorrectlyApplyUniversalDiscountOverThreshold(){
+        checkOut5.calculateBasketTotal();
     }
 
     @Test
-    public void appliesCustomerLoyaltyDiscount(){
-        assertEquals(180, checkOut6.rawTotal());
-        //assertEquals(177, checkOut6.applyDiscounts());
+    public void canCorrectlyApplyCustomerLoyaltyDiscount(){
+        checkOut6.calculateBasketTotal();
     }
 
-
     @Test
-    public void analyseArrayList(){
+    public void canCorrectlyApplyAllItemOffersAndCustomerDiscounts(){
         checkOut1.calculateBasketTotal();
     }
 

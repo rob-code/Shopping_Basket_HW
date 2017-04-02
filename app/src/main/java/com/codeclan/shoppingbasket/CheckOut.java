@@ -16,7 +16,6 @@ public class CheckOut {
     private ArrayList<Item> basketContents;
     int total;
 
-
     public CheckOut(Basket basket, Customer customer, UniversalDiscounts universalDiscount){
         this.basket = basket;
         this.customer = customer;
