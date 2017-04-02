@@ -16,7 +16,7 @@ public class TenPcOffOver20Test {
 
     @Test
     public void canGetOfferName(){
-        assertEquals("10% off when the price is over £20", offer.getOfferName());
+        assertEquals("10% off when you spend over £20", offer.getOfferName());
     }
 
     @Test

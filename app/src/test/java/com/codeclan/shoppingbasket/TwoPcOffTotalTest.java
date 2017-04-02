@@ -15,7 +15,7 @@ public class TwoPcOffTotalTest {
 
     @Test
     public void canGetOfferName(){
-        assertEquals("Loyal Customer Discount: 2% Off Your Total Spend", loyaltyOffer.getOfferName());
+        assertEquals("Loyal Customer Discount: 2% off your total spend", loyaltyOffer.getOfferName());
     }
 
     @Test

@@ -70,7 +70,18 @@ public class CheckOut {
         return totalCost;
     }
 
+    public void printReceiptHeader(){
+        System.out.println(" ");
+        System.out.println("* Grocery Shop *");
+        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println(sdf.format(date));
+        System.out.println(" ");
+    }
+
+
     public void calculateBasketTotal(){
+
         this.basketContents = basket.getContents();
         Map<Item, Integer> counts = new HashMap<Item, Integer>();
         for (Item item : basketContents){
@@ -81,12 +92,6 @@ public class CheckOut {
             }
         }
 
-        System.out.println(" ");
-        System.out.println("* Grocery Shop *");
-        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = new Date();
-        System.out.println(sdf.format(date));
-        System.out.println(" ");
 
 
         total = 0;
@@ -133,6 +138,7 @@ public class CheckOut {
         }
 
         applyDiscounts();
+
         System.out.println("***** Total To Pay : " + total);
 
     }
@@ -143,8 +149,6 @@ public class CheckOut {
         if (hasUniversalDiscount() && total > universalDiscount.getDiscountThreshold()){
             total -= total * universalDiscount.getDiscountPercentage()/100;
             System.out.println("Discount applied : " + universalDiscount.getOfferName());
-
-
         }
 
         //apply loyalty discount
@@ -153,6 +157,5 @@ public class CheckOut {
             System.out.println("Discount applied : " + customer.getDiscountName());
         }
     }
-
 
 }

@@ -136,7 +136,7 @@ public class CheckOutTest {
     }
 
     @Test
-    public void canCalculateRawToTal(){
+    public void canCalculateRawTotal(){
         assertEquals(7220, checkOut1.rawTotal());
     }
 
@@ -147,13 +147,13 @@ public class CheckOutTest {
     }
 
     @Test
-    public void universalDiscountOverThresholdIsApplied(){
+    public void appliesUniversalDiscountOverThreshold(){
         assertEquals(2600, checkOut4.rawTotal());
         //assertEquals(2340, checkOut4.applyDiscounts());
     }
 
     @Test
-    public void canApplyCustomerLoyaltyDiscountIfLoyal(){
+    public void appliesCustomerLoyaltyDiscount(){
         assertEquals(180, checkOut6.rawTotal());
         //assertEquals(177, checkOut6.applyDiscounts());
     }
