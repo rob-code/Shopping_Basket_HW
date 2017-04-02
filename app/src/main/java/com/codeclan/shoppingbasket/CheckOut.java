@@ -79,7 +79,6 @@ public class CheckOut {
         System.out.println(" ");
     }
 
-
     public void calculateBasketTotal(){
 
         this.basketContents = basket.getContents();
@@ -92,7 +91,7 @@ public class CheckOut {
             }
         }
 
-
+        printReceiptHeader();
 
         total = 0;
         double k;
@@ -139,7 +138,7 @@ public class CheckOut {
 
         applyDiscounts();
 
-        System.out.println("***** Total To Pay : " + total);
+        System.out.println("***** Total To Pay : " + total + " *****");
 
     }
 
@@ -149,12 +148,14 @@ public class CheckOut {
         if (hasUniversalDiscount() && total > universalDiscount.getDiscountThreshold()){
             total -= total * universalDiscount.getDiscountPercentage()/100;
             System.out.println("Discount applied : " + universalDiscount.getOfferName());
+            System.out.println(" ");
         }
 
         //apply loyalty discount
         if (customerIsLoyal()){
             total -= total * customer.getDiscountPercentage()/100;
             System.out.println("Discount applied : " + customer.getDiscountName());
+            System.out.println(" ");
         }
     }
 
