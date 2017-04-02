@@ -160,7 +160,7 @@ public class CheckOutTest {
 
     @Test
     public void analyseArrayList(){
-        checkOut3.analyseArrayList();
+        checkOut3.calculateBasketTotal();
     }
 
 }

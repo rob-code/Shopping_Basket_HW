@@ -70,7 +70,7 @@ public class CheckOut {
         return totalCost;
     }
 
-    public void analyseArrayList(){
+    public void calculateBasketTotal(){
         this.basketContents = basket.getContents();
         Map<Item, Integer> counts = new HashMap<Item, Integer>();
         for (Item item : basketContents){
@@ -81,8 +81,7 @@ public class CheckOut {
             }
         }
 
-
-
+        System.out.println("* Grocery Shop *");
         DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         System.out.println(sdf.format(date));
@@ -97,19 +96,25 @@ public class CheckOut {
 
                 if (item.hasOffer() == true){
 
-                    System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
-
                     k = (double)entry.getValue()/2;
-                    long ipart = (long)k;
-                    double fpart = k-ipart;
+                    long iPart = (long)k;
+                    double fPart = k-iPart;
 
+                    double d = 0;
+                    if (fPart == 0.5){
+                        d = 1;
+                    } else {
+                        d = 0;
+                    }
 
+                    long discount = (long) ((long)(item.getPrice()*entry.getValue()) - ((iPart * item.getPrice()) + (d * item.getPrice())));
+                    total += (int) ((int) (iPart * item.getPrice()) - (int) discount);
 
+                    System.out.println(" ");
+                    System.out.println(entry.getValue() + " x " + item.getName() + " (item cost = " + item.getPrice() + ") Total : " + item.getPrice()*entry.getValue());
+                    System.out.println("Offer applied: " + item.getOfferName() + " : Discount = -" + discount);
+                    System.out.println("Running total = " + total);
 
-                    //get positive and decimal parts of the number
-                    System.out.println("k = " + k + " Integer part = " + ipart + ", Fractional part = " + fpart);
-
-                    total = total;
 
                 } else {
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
