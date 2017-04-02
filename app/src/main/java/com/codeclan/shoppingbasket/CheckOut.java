@@ -81,10 +81,12 @@ public class CheckOut {
             }
         }
 
+        System.out.println(" ");
         System.out.println("* Grocery Shop *");
         DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         System.out.println(sdf.format(date));
+        System.out.println(" ");
 
 
         int total = 0;
@@ -108,13 +110,13 @@ public class CheckOut {
                     }
 
                     long discount = (long) ((long)(item.getPrice()*entry.getValue()) - ((iPart * item.getPrice()) + (d * item.getPrice())));
-                    total += (int) ((int) (iPart * item.getPrice()) - (int) discount);
+                    int amountToPay = item.getPrice()*entry.getValue() - (int) discount;
 
-                    System.out.println(" ");
-                    System.out.println(entry.getValue() + " x " + item.getName() + " (item cost = " + item.getPrice() + ") Total : " + item.getPrice()*entry.getValue());
+                    total += amountToPay;
+
+                    System.out.println(entry.getValue() + " x " + item.getName() + " (@ " + item.getPrice() + "/item) Total before discount: " + item.getPrice()*entry.getValue());
                     System.out.println("Offer applied: " + item.getOfferName() + " : Discount = -" + discount);
-                    System.out.println("Running total = " + total);
-
+                    System.out.println("Total to pay after discount applied: " + amountToPay);
 
                 } else {
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
@@ -122,12 +124,15 @@ public class CheckOut {
                 }
 
             } else {
-                System.out.println(item.getName() + " has a count of " + entry.getValue() + " so any offer does not apply");
+                System.out.println(+ entry.getValue() + " x " + item.getName() + " price = " + item.getPrice());
                 total += item.getPrice();
             }
-            System.out.println(entry.getKey() + " = " + entry.getValue() + " Total = " + total);
 
+            System.out.println("Running Total = " + total);
+            System.out.println(" ");
         }
+
+        System.out.println("***** Total To Pay : " + total);
 
     }
 
