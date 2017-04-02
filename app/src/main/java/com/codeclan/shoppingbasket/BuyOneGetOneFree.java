@@ -6,7 +6,7 @@ package com.codeclan.shoppingbasket;
 
 public class BuyOneGetOneFree implements ItemOffers{
 
-    private String offerName = "Buy One Get One Free";
+    private static final String offerName = "Buy One Get One Free";
 
     public String getOfferName(){
         return offerName;
