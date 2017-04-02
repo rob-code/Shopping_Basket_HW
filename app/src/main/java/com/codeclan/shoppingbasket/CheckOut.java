@@ -81,6 +81,7 @@ public class CheckOut {
 
     public void calculateBasketTotal(){
 
+        //count the quantity of each item in the basket
         this.basketContents = basket.getContents();
         Map<Item, Integer> counts = new HashMap<Item, Integer>();
         for (Item item : basketContents){
