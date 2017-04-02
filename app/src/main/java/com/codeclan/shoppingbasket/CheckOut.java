@@ -81,6 +81,13 @@ public class CheckOut {
             }
         }
 
+
+
+        DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println(sdf.format(date));
+
+
         int total = 0;
         double k;
         for (Map.Entry<Item, Integer> entry : counts.entrySet()){
@@ -97,10 +104,6 @@ public class CheckOut {
                     double fpart = k-ipart;
 
 
-                    //private static final
-                    DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                    Date date = new Date();
-                    System.out.println(sdf.format(date));
 
 
                     //get positive and decimal parts of the number
