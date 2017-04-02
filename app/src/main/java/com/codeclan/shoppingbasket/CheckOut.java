@@ -1,7 +1,10 @@
 package com.codeclan.shoppingbasket;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,8 +93,18 @@ public class CheckOut {
                     System.out.println(item.getName() + " has a count of " + entry.getValue() + ". Offer = " + item.hasOffer());
 
                     k = (double)entry.getValue()/2;
+                    long ipart = (long)k;
+                    double fpart = k-ipart;
+
+
+                    //private static final
+                    DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    Date date = new Date();
+                    System.out.println(sdf.format(date));
+
+
                     //get positive and decimal parts of the number
-                    System.out.println("k = " + k + " and k % 2 = " + (k % 2));
+                    System.out.println("k = " + k + " Integer part = " + ipart + ", Fractional part = " + fpart);
 
                     total = total;
 
