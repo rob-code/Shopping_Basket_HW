@@ -14,11 +14,4 @@ public class TwoPcOffTotal implements LoyaltyDiscounts{
         return discountPercentage;
     }
 
-//    public void setOfferName(String offerName) {
-//        this.offerName = offerName;
-//    }
-
-//    public void setDiscountPercentage(int discountPercentage) {
-//        this.discountPercentage = discountPercentage;
-//    }
 }

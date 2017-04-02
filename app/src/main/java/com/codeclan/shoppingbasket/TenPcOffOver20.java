@@ -1,8 +1,5 @@
 package com.codeclan.shoppingbasket;
 
-/**
- * Created by user on 31/03/2017.
- */
 
 public class TenPcOffOver20 implements UniversalDiscounts {
 
@@ -22,21 +19,5 @@ public class TenPcOffOver20 implements UniversalDiscounts {
     public int getDiscountThreshold(){
         return discountThreshold;
     }
-
-
-    //setters are not required beccause we will never change the offer
-    //we will only ever create a new offer.
-
-//    public void setOfferName(String offerName) {
-//        this.offerName = offerName;
-//    }
-
-
-//    public void setDiscountPercentage(int discountPercentage) {
-//        this.discountPercentage = discountPercentage;
-//    }
-
-
-
 
 }
