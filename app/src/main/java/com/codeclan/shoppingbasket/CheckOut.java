@@ -13,8 +13,8 @@ public class CheckOut {
     private Basket basket;
     private Customer customer;
     private UniversalDiscounts universalDiscount;
-    int total;
     private ArrayList<Item> basketContents;
+    int total;
 
 
     public CheckOut(Basket basket, Customer customer, UniversalDiscounts universalDiscount){
